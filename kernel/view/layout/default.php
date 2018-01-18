@@ -16,6 +16,7 @@ require_once(DIR_VIEW."layout/footer.php");
 </head>
 	<body>
 	<div id="header">
+
 	</div>
 
 	<div id="content">

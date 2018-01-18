@@ -33,7 +33,7 @@ class Controller {
 	public function render ($script){
 		extract ($this->viewvar);
 		ob_start();
-		require(DIR_VIEW.get_class($this).'/'.$script.'.html');
+		require(DIR_VIEW.get_class($this).'/'.$script.'.php');
 		$content = ob_get_clean();
 		require(DIR_VIEW.'layout/'.$this->layout.'.php');
 	}

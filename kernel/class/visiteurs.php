@@ -23,7 +23,7 @@ class visiteurs extends Model{
      * @param $telephone_visiteurs
      * @param $mail_visiteurs
      */
-    public function __construct($id_visiteurs, $nom_visteurs, $prenom_visiteurs, $telephone_visiteurs, $mail_visiteurs)
+    public function __construct($id_visiteurs =null, $nom_visteurs =null , $prenom_visiteurs =null, $telephone_visiteurs =null, $mail_visiteurs=null)
     {
         parent::__construct("visiteurs", "id_visiteurs", false, array());
         $this->id_visiteurs = $id_visiteurs;

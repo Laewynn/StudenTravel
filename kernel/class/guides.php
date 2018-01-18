@@ -28,7 +28,7 @@ class guides extends Model{
      * @param $telephone_guides
      * @param $mail_guides
      */
-    public function __construct($id_guides, $nom_guides, $prenom_guides, $ville_guides, $description_guides, $caracteristiques_guides, $telephone_guides, $mail_guides)
+    public function __construct($id_guides =null, $nom_guides = null, $prenom_guides = null, $ville_guides =null, $description_guides =null, $caracteristiques_guides =null, $telephone_guides=null, $mail_guides =null)
     {
         parent::__construct("guides", "id_guides", false, array());
         $this->id_guides = $id_guides;
