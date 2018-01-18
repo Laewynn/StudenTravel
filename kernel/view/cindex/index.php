@@ -23,7 +23,7 @@
             <nav class="site-nav">
                 <ul id="std-menu">
                     <li><a class="active" href="">Accueil</a></li>
-                    <li><a href="../cdestinations/index.php">Destinations</a></li>
+                    <li><a href=".DIR_WEBROOT.cdestinations">Destinations</a></li>
                     <li><a href=".DIR_WEBROOT.cinscription">Inscription</a></li>
                     <li><a href=".DIR_WEBROOT.csalarie">Connexion</a></li>
                 </ul>

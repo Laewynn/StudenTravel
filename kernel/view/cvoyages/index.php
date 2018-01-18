@@ -1,0 +1,99 @@
+<!DOCTYPE html lang="fr">
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../../css/styleform.css">
+
+    <title>StudenTravel - Découvrir une ville d'Europe avec un guide touristique étudiant.</title>
+
+
+</head>
+
+<body>
+
+<div id="search-form">
+    <div id="header">
+        <h1>Recherche un guide touristique étudiant</h1>
+    </div>
+    <section>
+        <div class="flight" id="flightbox">
+
+            <form id="flight-form">
+
+                <!-- FROM/TO -->
+                <div id="flight-depart">
+                    <div class="info-box">
+                        <label for="">Ville de départ</label>
+                        <input type="text" id="dep-from" />
+                        <div id="depart-res"></div>
+                    </div>
+                    <div class="info-box" id="arrive-box">
+                        <label for="">Ville d'arrivée</label>
+                        <input type="text" id="dep-to" />
+                        <div id="arrive-res"></div>
+                    </div>
+                </div>
+
+                <!-- FROM/TO -->
+                <div id="flight-dates">
+                    <div class="info-box">
+                        <label for="">Date de départ</label>
+                        <input type="text" id="leave-date" readonly />
+                    </div>
+                    <div class="info-box" id="return-box">
+                        <label for="">Date d'arrivée</label>
+                        <input type="text" id="return-date" readonly />
+                    </div>
+                </div>
+
+                <!-- PASSENGER INFO -->
+                <div id="flight-info">
+                    <div class="info-box">
+                        <label for="adults">Nombre d'étudiants</label>
+                        <select name="adults" id="adults">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
+                    <div class="info-box">
+                        <label for="class-type">Budget</label>
+                        <select name="class-type" id="class-type">
+                            <option value="Economy">-</option>
+                            <option value="Business">+</option>
+                            <option value="First">++</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SEARCH BUTTON -->
+                <div id="flight-search">
+                    <div class="info-box">
+                        <input type="submit" id="search-flight" value="VALIDER" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <div id="calender">
+        <div class="nav">
+            <button id="prev"><</button>
+            <p><span id="month"></span>
+                <span id="year"></span></p>
+            <button id="next">></button>
+        </div>
+        <table id="cal"></table>
+    </div>
+
+</div>
+<div id="confirm"></div>
+
+
+</body>
+<script src="javascript/scriptform.js"></script>
+
+</html>
