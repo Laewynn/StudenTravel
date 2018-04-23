@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 17 jan. 2018 à 21:23
+-- Généré le :  jeu. 18 jan. 2018 à 13:47
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -31,12 +31,12 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `guides`;
 CREATE TABLE IF NOT EXISTS `guides` (
   `id_guides` int(11) NOT NULL AUTO_INCREMENT,
-  `nom_guides` int(11) NOT NULL,
-  `prenom_guides` int(11) NOT NULL,
-  `ville_guides` int(11) NOT NULL,
-  `description_guides` int(11) NOT NULL,
-  `caracteristiques_guides` int(11) NOT NULL,
-  `telephone_guides` int(11) NOT NULL,
+  `nom_guides` varchar(50) NOT NULL,
+  `prenom_guides` varchar(50) NOT NULL,
+  `ville_guides` varchar(70) NOT NULL,
+  `description_guides` text NOT NULL,
+  `caracteristiques_guides` text NOT NULL,
+  `telephone_guides` int(10) NOT NULL,
   `mail_guides` varchar(50) NOT NULL,
   PRIMARY KEY (`id_guides`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `villes`;
 CREATE TABLE IF NOT EXISTS `villes` (
   `id_villes` int(11) NOT NULL AUTO_INCREMENT,
   `nom_villes` varchar(50) NOT NULL,
-  `description_villes` int(11) NOT NULL,
+  `description_villes` varchar(500) NOT NULL,
   `activites_villes` varchar(500) NOT NULL,
   PRIMARY KEY (`id_villes`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `visiteurs` (
   `id_visiteurs` int(11) NOT NULL AUTO_INCREMENT,
   `nom_visiteurs` varchar(50) NOT NULL,
   `prenom_visiteurs` varchar(50) NOT NULL,
-  `telephone_visiteurs` int(11) NOT NULL,
+  `telephone_visiteurs` int(10) NOT NULL,
   `mail_visiteurs` varchar(50) NOT NULL,
   PRIMARY KEY (`id_visiteurs`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;

@@ -7,7 +7,7 @@
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../../../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../css/style.css">
 
 
@@ -18,25 +18,25 @@
     <header class="site-header cf">
         <div class="container">
             <div class="site-logo">
-                <h1>StudenTravel</h1>
+            <a href="<?php echo DIR_WEBROOT; ?>"> <h1> StudenTravel </h1> </a>
             </div>
             <nav class="site-nav">
                 <ul id="std-menu">
-                    <li><a class="active" href="">Accueil</a></li>
-                    <li><a href=".DIR_WEBROOT.cdestinations">Destinations</a></li>
-                    <li><a href=".DIR_WEBROOT.cinscription">Inscription</a></li>
-                    <li><a href=".DIR_WEBROOT.csalarie">Connexion</a></li>
+                    <li><a class="active" href="<?php echo DIR_WEBROOT; ?>">Accueil</a></li>
+                    <li><a href="<?php echo DIR_WEBROOT; ?>cvoyages">Destinations</a></li>
+                    <li><a href="<?php echo DIR_WEBROOT; ?>cguides">GUIDES</a></li>
+                    <li><a href="<?php echo DIR_WEBROOT; ?>cconnexion">JEAN DUPONT (déconnexion)</a></li>
                 </ul>
-                <a href="" id="menu-trigger"><i class="fa fa-bars fa-lg"></i></a>
+                <a href="#" id="menu-trigger"><i class="fa fa-bars fa-lg"></i></a>
             </nav>
         </div>
         <!-- /container -->
     </header>
     <ul id="responsive-menu">
         <li><a class="active" href="">Accueil</a></li>
-        <li><a href=.DIR_WEBROOT."cdestinations>Destinations</a></li>
-        <li><a href="">Inscription</a></li>
-        <li><a href="">Connexion</a></li>
+        <li><a href="<?php echo DIR_WEBROOT; ?>cvoyages">Destinations</a></li>
+        <li><a href="<?php echo DIR_WEBROOT; ?>cguides">GUIDES</a></li>
+        <li><a href="<?php echo DIR_WEBROOT; ?>cconnexion">Connexion</a></li>
     </ul>
 
     <div class="welcome-message">
@@ -50,29 +50,26 @@
         <div class="content">
             <section class="main">
                 <article>
-                    <h1>Title</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.<strong>Error possimus cumque</strong> earum voluptate rem facilis recusandae, accusantium laboriosam obcaecati, necessitatibus molestiae, dolorum sint ea. Nemo, hic, minima, pariatur tempore maxime beatae eum quidem asperiores nam omnis corrupti quasi vel necessitatibus accusamus. Veritatis, assumenda ea in. Veniam sint placeat rem corporis.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem illum, tempore veritatis sint voluptate. Id optio ut facere ex, ea itaque distinctio iure impedit. <strong>Veniam beatae rem porro</strong> totam ex recusandae commodi quisquam amet asperiores laboriosam quis perferendis, dicta velit.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus minus quae, eos aliquid reprehenderit illo qui. Debitis obcaecati impedit nihil incidunt modi, laborum omnis illo dignissimos eaque, illum reiciendis distinctio, non expedita alias aliquid! Perferendis sint veritatis iure consectetur, maiores unde ullam voluptate reprehenderit! Earum voluptate dolorum neque omnis qui?</p>
+                    <h1>Bienvenue sur StudenTravel !</h1>
+                    <p>Tu vas pouvoir être facilement en relation avec d’autres étudiants comme toi. Notre but ? Te permettre de visiter une capitale en ayant un guide pendant la période que tu souhaites (quelques jours ou toute la durée du séjour). C’est une personne étudiante et, être guide est un passe-temps amateur pour te faire découvrir sa ville. Nous espérons que ce sera un moyen pour toi de passer un moment convivial et enrichissant !</p>
+                    <p>Et comme on sait que ce n’est pas tous les jours faciles (financièrement parlant) d’être étudiant, les prix sont accessibles (différents niveaux de budgets) et la commission que nous prenons pour chaque transaction est limitée.
+                    </p>
+                    <p>Il ne te reste plus qu’à rechercher ta prochaine destination, suivre les différentes étapes et à te lancer dans une nouvelle aventure :)
+                    </p>
                 </article>
                 <article>
-                    <h1>Another title</h1>
-                    <p><strong>Lorem ipsum dolor sit amet</strong>, consectetur adipisicing elit. Cumque autem laudantium dolores dignissimos unde saepe adipisci ipsa delectus aliquid hic et explicabo odit, alias perferendis soluta est quos ducimus magni facere modi nulla laborum sapiente enim dolor natus. Maxime commodi officia, labore nemo et temporibus animi repellendus perferendis dolorum. Illum.</p>
-                </article>
-                <article>
-                    <h1>And a conclusion</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate unde eos laboriosam porro dolor aut temporibus dolore dignissimos optio laudantium, enim atque incidunt. Cupiditate ipsa deserunt, adipisci quis expedita est magni optio! Assumenda dolor repellendus qui pariatur dolore in mollitia voluptatum sed ad, aspernatur, eius adipisci aliquam, exercitationem esse dolores unde recusandae sint quia. Neque, distinctio reprehenderit ipsa maiores error.</p>
+                    <h1>Tuto d'utilisation</h1>
+                    <h2>#1 Recherche le nom de ta capitale de ton choix</h2>
+                    <h2>#2 Choisi une période de commencement et de fin du guide touristique (qui correspond ou non à la période de ton séjour) et le nombre de personnes qui sont avec toi.</h2>
+                    <h2>#3 Consulte les profils disponibles à ces dates et fais ton choix ;-)</h2>
+                    <h2>#4 Confirme ton choix et payes à l’avance</h2>
                 </article>
             </section>
             <aside class="sidebar">
                 <div class="window">
-                    <h2>Comment ça marche ?</h2>
-                    <p>C'est simple.</p>
-                    <p>1. Recherche ta destination</p>
-                    <p>2. Renseigne les dates d'arrivée et de départ</p>
-                    <p>3. Valide et découvre ensuite les guides touristiques disponibles pendant ton séjour</p>
+                    <h2><i class="glyphicon glyphicon-globe"></i></h2>
                 </div>
-                <div class="window window-has-contact">
+                <!--<div class="window window-has-contact">
                     <form class="form" action="">
                         <h2>Rechercher une destination rapidement</h2>
                         <div class="form-block">
@@ -91,7 +88,7 @@
                             <button id="send-btn" type="submit">Valider</button>
                         </div>
                     </form>
-                </div>
+                </div>-->
             </aside>
         </div>
         <footer class="site-footer">
@@ -101,8 +98,18 @@
     <!--\Container-->
 
 </body>
-<script type="text/javascript" src="../../../js/jquery-3.2.1.min.js"> </script>
-<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"> </script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.1/jquery.fittext.min.js"> </script>
-<script type="text/javascript" src="../../../js/script.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js">
+
+
+</script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+
+
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.1/jquery.fittext.min.js">
+
+
+</script>
+<script type="text/javascript" src="js/script.js"></script>
+
 </html>

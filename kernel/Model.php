@@ -63,14 +63,14 @@
         }
         return $bdd;
 
-    }  
-
+    }
     /**
     * Fonction qui sert créer les lignes de la table génériquement
     *
     * @author MARCHAND Laëtitia
     * @date 07/10/16
     */
+    /*
     public function create(){
 		$proprietes="";
 		$valeurs="";
@@ -80,7 +80,7 @@
         * Insertion dans la requête des noms de colonnes
         * Conditions : - le nom de la colonne ne doit pas faire partie des attributs techniques (ce qu'on as noté dans $attributech)
         *          
-        */
+
         if($this->autoincrement){ // si la clé primaire est en auto-incrément, 
             $this->attributech[] = $this->pk; // ALORS on l'ajoute dans le tableau des attributs techiniques, comme ça , elle ne sera pas ajoutée dans la requête
         }
@@ -90,13 +90,15 @@
                 $valeurs = $valeurs . " '" . str_replace("'", "''", $valeurColonne) . "',";    // pour que toutes les valeurs soit mises côtes à côtes séparées par des virgules
 
             }
+
         
 		}
-        $proprietes = substr($proprietes, 0, -1);
+        $proprietes = substr($proprietes, 0, -1); // suppression de la dernière virgule
         $valeurs = substr($valeurs, 0, -1);
         /* echo "Propriétés : $proprietes<br/>";
         echo "Valeurs : $valeurs <br/> <br/>";
 		*/
+    /*
         $sql="INSERT INTO {$this->table} ($proprietes) VALUES ($valeurs)";
          echo "<br/> Création de la ligne <br/> " . "Requête : " . $sql;
         
@@ -124,12 +126,69 @@
         	 	$sql="$sql '$value' ,";
         }
         $sql= substr($sql, 0, -1); // Suppression du dernier caractère (donc la virgule qui est en trop)
-        */     
+
     } 
 
+*/
+        public function create(){
+            $listeProprietes = "";
+            $listeValeurs = "";
+
+            if($this->autoincrement){
+                /*
+                *  SI la clé primaire est en auto-incrément
+                *  ALORS on l'ajoute dans le tableau des attributs techniques, comme ça,
+                *  elle ne sera pas ajoutée dans la requête
+                */
+                $this->attributech[] = $this->pk;
+            }
+
+            /*
+            * Insertion dans la requête des noms de colonne
+            * 	- SI on n'est pas en train de regarder un attribut technique
+            *		(donc si le nom de l'attribut sur la ligne en cours ne fait pas partie des noms d'attribut
+            *		 qu'on a notés dans le tableau où on a noté les attributs techniques (le tableau $attribtech) )
+            */
+            foreach ($this as $unNomColonne=>$uneValeurColonne){
+                if(!in_array($unNomColonne, $this->attributech) && !is_null($uneValeurColonne)){
+                    // Pour la requete d'insertion :
+                    $listeProprietes .= $unNomColonne . " ,";
+                    $listeValeurs .= $this->formaterChaineEnSQL($uneValeurColonne) . " ,";
+                }
+            }
+
+            $listeProprietes = substr($listeProprietes, 0, -1);		// Suppression de la dernière virgule
+            $listeValeurs = substr($listeValeurs, 0, -1);			// Suppression de la dernière virgule
 
 
-    /**
+            $reqIns = "INSERT INTO {$this->table} ($listeProprietes) VALUES ($listeValeurs)";
+
+            echo "<br/>model::create() -> \$reqIns : <br/>" . $reqIns . "<br/>";
+
+
+            $base = $this->connexion();
+            if(!$base->exec($reqIns)){
+                print_r($base->errorInfo());
+            }
+
+
+
+            /*
+             * Si la PK est en un ID en auto-incrément, alors on récupère l'ID de l'enregistrement tout juste créé
+             * et on l'affecte à la propriété <clé primaire> de l'objet
+             */
+            if($this->autoincrement){
+                $this->{$this->pk} = $base->lastInsertId($this->table . "_" . $this->pk . "_seq");
+            }
+
+            $base = null;
+        }
+
+
+
+
+
+        /**
     * Fonction qui sert à lire les lignes de la table génériquement
     * @param $id = la clé primaire de l'utilisateur 
     * @return $result = toutes les valeurs du nom des colonnes de la base
@@ -293,7 +352,28 @@
         return $data;
     }
 
+
+
+/*
+	* formaterChaineEnSQL -	Formate une chaîne pour l'écrire dans des requêtes SQL sans problème :
+	*					- transforme les booléens en " TRUE " ou " FALSE "
+	*					- transforme les chaînes vides en NULL
+	*					- transforme les chaînes pour supprimer les caractères sensibles (comme des apostrophes) en caractères HTML
+	*/
+public function formaterChaineEnSQL($chaineAFormater){
+    if(is_bool($chaineAFormater)){
+        $nouvelleChaine = $chaineAFormater ? " TRUE " : " FALSE";
+    }else{
+        if($chaineAFormater == ''){
+            $nouvelleChaine = " NULL ";
+        }else{
+            $nouvelleChaine = " '" .  htmlspecialchars($chaineAFormater, ENT_QUOTES) . "' ";
+        }
+    }
+
+    return $nouvelleChaine;
 }
 
+    }
 
 ?>

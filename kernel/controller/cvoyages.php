@@ -1,31 +1,38 @@
 <?php
 require_once(DIR_CTRL.'/controller.php');
 //require(DIR_CORE.'class/classCategories.php');
-class cdestinations extends Controller {
+class cvoyages extends Controller {
 
     //attribs
-    var $models = array('destinations');
+    var $models = array('voyages');
 
     public function index() {
-        $data['destinations'] = $this->destinations->find();
+        $data['voyages'] = $this->voyages->find();
         $this->set($data);
         $this->render('index');
     }
 
     public function read($id) {
-        $categorie = new destinations();
-        $this->destinations->read($id);
-        $data['destinations'] = $this->destinations->totable();
+        $categorie = new voyages();
+        $this->voyages->read($id);
+        $data['voyages'] = $this->voyages->totable();
         $this->set($data);
         $this->render('read');
     }
 
     public function create() {
-        $this->destinations->setMatriculeCategorie($_POST['destinations']);
-        $this->destinations->setLibelleCategorie($_POST['destinations']);
-        $this->destinations->setPuKm($_POST['destinations']);
-        $this->destinations->setPuRepas($_POST['pu_destinations']);
-        $this->destinations->create();
+        echo "<pre>";
+        print_r($_POST);
+        echo "<pre>";
+
+        $this->voyages->setIdVoyages(NULL);
+        $this->voyages->setDatedebutVoyages($_POST['datedebut_voyages']);
+        $this->voyages->setDatefinVoyages($_POST['datefin_voyages']);
+        $this->voyages->setNbetudiantsVoyages($_POST['nbetudiants_voyages']);
+        $this->voyages->setVilledepartVoyages($_POST['villedepart_voyages']);
+        $this->voyages->setVilledarriveeVoyages($_POST['villedarrivee_voyages']);
+        $this->voyages->setBudgetVoyages($_POST['budget_voyage']);
+        $this->voyages->create();
         $this->index();
     }
 
@@ -37,8 +44,8 @@ class cdestinations extends Controller {
 
 
     public function fupdate($id){
-        $this->destinations->read($id);
-        $data['destinations'] = $this->destinations->totable();
+        $this->voyages->read($id);
+        $data['voyages'] = $this->voyages->totable();
         $this->set($data);
 
         $this->render('fupdate');
@@ -46,17 +53,20 @@ class cdestinations extends Controller {
 
     public function update($id) {
         //var_dump($_POST);
-        $this->destinations->setMatriculeCategorie('');
-        $this->destinations->setLibelleCategorie($_POST['libelle_categorie']);
-        $this->destinations->setPuKm($_POST['pu_km']);
-        $this->destinations->setPuRepas($_POST['pu_repas']);
-        $this->destinations->update($id);
+        $this->voyages->setIdVoyages('');
+        $this->voyages->setDatedebutVoyages($_POST['datedebut_voyages']);
+        $this->voyages->setDatefinVoyages($_POST['datefin_voyages']);
+        $this->voyages->setNbetudiantsVoyages($_POST['nbetudiants_voyages']);
+        $this->voyages->setVilledepartVoyages($_POST['villedepart_voyages']);
+        $this->voyages->setVilledarriveeVoyages($_POST['villedarrivee_voyages']);
+        $this->voyages->setBudgetVoyages($_POST['budget_voyage']);
+        $this->voyages->update($id);
         $this->index();
     }
 
     public function delete($id){
         //$this->categorie->read($id);
-        $this->destinations->delete($id);
+        $this->voyages->delete($id);
         $this->index();
 
     }

@@ -14,7 +14,7 @@ class voyages extends Model{
     protected $nbetudiants_voyages;
     protected $villedepart_voyages;
     protected $villedarrivee_voyages;
-    protected $budget_voyages;
+    protected $budget_voyage;
 
     /**
      * voyages constructor.
@@ -26,7 +26,7 @@ class voyages extends Model{
      * @param $villedarrivee_voyages
      * @param $budget_voyages
      */
-    public function __construct($id_voyages = null, $datedebut_voyages = null, $datefin_voyages = null , $nbetudiants_voyages = null, $villedepart_voyages =null, $villedarrivee_voyages =null, $budget_voyages =null)
+    public function __construct($id_voyages = null, $datedebut_voyages = null, $datefin_voyages = null , $nbetudiants_voyages = null, $villedepart_voyages =null, $villedarrivee_voyages =null, $budget_voyage =null)
     {
         parent::__construct("voyages", "id_voyages", false, array());
         $this->id_voyages = $id_voyages;
@@ -35,7 +35,7 @@ class voyages extends Model{
         $this->nbetudiants_voyages = $nbetudiants_voyages;
         $this->villedepart_voyages = $villedepart_voyages;
         $this->villedarrivee_voyages = $villedarrivee_voyages;
-        $this->budget_voyages = $budget_voyages;
+        $this->budget_voyage = $budget_voyage;
     }
 
     /**
@@ -59,7 +59,7 @@ class voyages extends Model{
      */
     public function getDatedebutVoyages()
     {
-        return $this->datedebut_voyages;
+        return date_format(date_create_from_format('Y-m-d',$this->datedebut_voyages), 'd/m/Y');
     }
 
     /**
@@ -67,7 +67,7 @@ class voyages extends Model{
      */
     public function setDatedebutVoyages($datedebut_voyages)
     {
-        $this->datedebut_voyages = $datedebut_voyages;
+        $this->datedebut_voyages = date_format(date_create_from_format('d/m/Y',$datedebut_voyages), 'Y-m-d');
     }
 
     /**
@@ -75,7 +75,7 @@ class voyages extends Model{
      */
     public function getDatefinVoyages()
     {
-        return $this->datefin_voyages;
+        return date_format(date_create_from_format('Y-m-d',$this->datefin_voyages), 'd/m/Y');
     }
 
     /**
@@ -83,7 +83,7 @@ class voyages extends Model{
      */
     public function setDatefinVoyages($datefin_voyages)
     {
-        $this->datefin_voyages = $datefin_voyages;
+        $this->datefin_voyages = date_format(date_create_from_format('d/m/Y',$datefin_voyages), 'Y-m-d');
     }
 
     /**
@@ -139,15 +139,15 @@ class voyages extends Model{
      */
     public function getBudgetVoyages()
     {
-        return $this->budget_voyages;
+        return $this->budget_voyage;
     }
 
     /**
      * @param null $budget_voyages
      */
-    public function setBudgetVoyages($budget_voyages)
+    public function setBudgetVoyages($budget_voyage)
     {
-        $this->budget_voyages = $budget_voyages;
+        $this->budget_voyage = $budget_voyage;
     }
 
 
